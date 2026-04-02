@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    color: #333333;
+    background-color: #ffffff;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer components {
+  .macys-btn-primary {
+    @apply bg-macys-red text-white font-semibold py-3 px-6 rounded hover:bg-macys-red-dark transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-macys-red focus:ring-offset-2;
+  }
+
+  .macys-btn-secondary {
+    @apply border-2 border-macys-gray text-macys-gray font-semibold py-3 px-6 rounded hover:bg-macys-gray hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-macys-gray focus:ring-offset-2;
+  }
+
+  .macys-input {
+    @apply border border-macys-gray-border rounded px-4 py-2 w-full focus:outline-none focus:border-macys-red focus:ring-1 focus:ring-macys-red transition-colors duration-200;
+  }
+
+  .product-image-zoom {
+    @apply overflow-hidden cursor-zoom-in;
+  }
+
+  .product-image-zoom img {
+    @apply transition-transform duration-300 ease-in-out;
+  }
+
+  .product-image-zoom:hover img {
+    @apply scale-110;
+  }
+
+  .swatch-btn {
+    @apply w-8 h-8 rounded-full border-2 border-transparent cursor-pointer transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-macys-red;
+  }
+
+  .swatch-btn.active {
+    @apply border-macys-gray;
+  }
+
+  .size-btn {
+    @apply border border-macys-gray-border text-sm font-medium py-2 px-3 rounded cursor-pointer transition-all duration-150 hover:border-macys-red hover:text-macys-red focus:outline-none focus:ring-2 focus:ring-macys-red;
+  }
+
+  .size-btn.active {
+    @apply border-macys-red text-macys-red bg-red-50;
+  }
+
+  .size-btn.out-of-stock {
+    @apply opacity-40 cursor-not-allowed line-through;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #999;
+}
+
+/* Carousel hide scrollbar */
+.carousel-container {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.carousel-container::-webkit-scrollbar {
+  display: none;
+}
